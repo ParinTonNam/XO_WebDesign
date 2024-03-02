@@ -1,0 +1,56 @@
+.text_head{
+    text-align: center;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.box{
+    font-size: 5rem;
+    width: 78rem;
+    height: 48rem;
+    padding: 10px;
+    background-color: #8A7D5D;
+    border-radius: 5%;
+    margin: auto;
+    margin-top: 2rem;
+    box-shadow: 5px 10px #303030;
+  }
+
+  .box_pass{
+    font-size: 5rem;
+    width: 73rem;
+    height: 27rem;
+    padding: 10px;
+    background-color:#C4B796;
+    border-radius: 5%;
+    margin: auto;
+    box-shadow: 5px 10px #2c2c2c;
+  }
+
+  .box_skill{
+    display: flex;
+    justify-content: center
+  }
+
+    .text_name1{
+        /* background-color: blue; */
+        margin-left:3rem ;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        color: black;
+    }
+
+    .text_name2{
+        /* background-color: blue; */
+        font-size: 3rem;
+        margin-left:3rem ;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        color: black;
+    }
+    .icon{
+        text-align: right;
+        justify-content: right;
+        margin-top: 3rem;
+        margin-right: 5rem;
+    }

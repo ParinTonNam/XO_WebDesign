@@ -6,15 +6,33 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="images/icons/logo-1.png" />
-
+	<link rel="stylesheet" type="text/css" href="css/user.css">
 	<script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 </head>
 
-<body>
+<body style="background-image: url('images/bg/bg_login.png');">
+	<div class="icon">
+		<img onclick='window.location = "page_main.html";' src="images/icons/icon_home.png" width="100" height="100">
+		<img onclick='window.location = "page_setting.html";' src="images/icons/icon_settings.png" width="100" height="100">
+	</div>
+	
+	<div class="box">
+		<div class="text_name1">NamePlayer</div>
+		<div class="text_name2">Winrate - 99%  Game Counted - 99 games</div>
+		<div class="box_pass">
+			<div class="text_head">Honor - 99 exp<br></div>
+			<div class="box_skill">
+			<img src="images/skill/skill_wood.png" width="200" height="200">
+			<img src="images/skill/skill_water.png" width="200" height="200">
+			<img src="images/skill/skill_fire.png" width="200" height="200">
+			<img src="images/skill/skill_star.png" width="200" height="200">
+		</div>
 
+		</div>
+	  </div>
 	<script>
 		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 		const firebaseConfig = {

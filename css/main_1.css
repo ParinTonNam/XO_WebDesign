@@ -1,0 +1,10 @@
+body{
+    /* background-color: aqua; */
+    background-image: url('images/bg/mainmenu_art.png');
+}
+h1{
+    font-size:4rem;
+    margin-left: 9rem;
+    margin-top: 0rem;
+    color: white;
+}
