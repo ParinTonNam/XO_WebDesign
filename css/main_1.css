@@ -12,12 +12,12 @@ body{
 .menu{
     display: flex;
     flex-direction: column;
-    margin: -4rem;
-    margin-left: 9rem;
+    margin-left: 13rem;
     width: 20%;
 }
 
 .menu-item {
+    margin-bottom: 1.5rem;
     text-decoration: none;
     color: white;
     font-size: 4rem;
@@ -25,5 +25,5 @@ body{
 }
 
 .menu-item:hover {
-    color: #B2AF7F;
+    color: C3BE8F;
 }
