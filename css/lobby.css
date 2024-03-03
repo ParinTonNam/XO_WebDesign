@@ -19,7 +19,7 @@ h3{
 .box{
     font-size: 4rem;
     width: 60%;
-    height: 50%;
+    height: 46rem;
     padding: 30px;
     background-color: #8A7D5D;
     border-radius: 5%;
@@ -29,7 +29,7 @@ h3{
   /* scroll here */
 .roomlist{
     overflow-y: scroll;
-    height: 25rem;
+    height: 35.5rem;
     padding: 10px;
 
     scrollbar-color: black rgba(255, 255, 255, 0);
