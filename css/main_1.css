@@ -1,10 +1,10 @@
 body{
     user-select: none;
-    background-image: url('images/bg/mainmenu_art.png');
+    background-image: url('/images/bg/mainmenu_art.png');
     background-repeat: repeat;
     position: relative;
-    width: auto;
-    height: auto;
+    width: 95%;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -17,13 +17,14 @@ body{
 }
 
 .menu-item {
-    margin-bottom: 1.5rem;
+    margin-left: 15%;
+    margin-bottom: 2rem;
     text-decoration: none;
     color: white;
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: bold;
 }
 
 .menu-item:hover {
-    color: C3BE8F;
+    color: #C3BE8F;
 }
