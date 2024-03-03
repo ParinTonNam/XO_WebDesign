@@ -20,17 +20,24 @@
 	</div>
 	
 	<div class="box">
-		<div class="text_name1">NamePlayer</div>
-		<div class="text_name2">Winrate - 99%  Game Counted - 99 games</div>
+		<div class="text_name1"><h3>NamePlayer</h3></div>
+		<div class="text_name2"><h3>Winrate - 99%  Game Counted - 99 games</h3></div>
 		<div class="box_pass">
-			<div class="text_head">Honor - 99 exp<br></div>
+			<div class="text_head"><h3>Honor - 99 exp</h3><br></div>
 			<div class="box_skill">
-			<img src="images/skill/skill_wood.png" width="200" height="200">
-			<img src="images/skill/skill_water.png" width="200" height="200">
-			<img src="images/skill/skill_fire.png" width="200" height="200">
-			<img src="images/skill/skill_star.png" width="200" height="200">
+			<img id="myImg" src="images/skill/skill_wood.png" width="200" height="200">
+			<img id="myImg2" src="images/skill/skill_water.png" width="200" height="200">
+			<img id="myImg3" src="images/skill/skill_fire.png" width="200" height="200">
+			<img id="myImg4" src="images/skill/skill_star.png" width="200" height="200">
 		</div>
 
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+		  <span class="close">&times;</span>
+		  <img class="modal-content" id="img01">
+		  <div id="caption"></div>
+		</div>
+		
 		</div>
 	  </div>
 	<script>
@@ -47,7 +54,7 @@
 		firebase.initializeApp(firebaseConfig)
 	</script>
 	
-	<script src=""></script>
+	<script src="js/user.js"></script>
 
 </body>
 
