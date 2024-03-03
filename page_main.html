@@ -5,7 +5,7 @@
 	<title>4Kingdoms</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="images/icons/logo-1.png" />
+	<link rel="icon" type="image/png" href="images/icons/logo-1.png"/>
 	<link rel="stylesheet" type="text/css" href="css/main_1.css">
 	<script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics-compat.js"></script>
@@ -15,11 +15,22 @@
 
 <body style="background-image: url('images/bg/mainmenu_art.png');">
 	<img src="images/icons/logo.png">
+		<div class="menu">
+			<a class="menu-item" href="page_lobby.html">Battle</a>
+			<a class="menu-item" href="page_user.html">Profile</a>
+			<a class="menu-item" href="page_scoreboard.html">Scoreboard</a>
+			<a class="menu-item" href="page_setting.html">Setting</a>
+			<a class="menu-item" href="index.html">Exit</a>
+		</div>
+
+<!-- 
 	<h1 onclick='window.location = "page_game.html";'>Battle</h1>
     <h1 onclick='window.location = "page_user.html";'>Profile</h1>
     <h1 onclick='window.location = "page_scoreboard.html";'>Scoreboard</h1>
     <h1 onclick='window.location = "page_setting.html";'>Setting</h1>
     <h1 onclick='window.location = "index.html";'>Exit</h1>
+-->
+
 	<script>
 		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 		const firebaseConfig = {

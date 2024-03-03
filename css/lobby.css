@@ -1,0 +1,70 @@
+h3{
+    margin: 0;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-top: 1%;
+    cursor: none;
+    user-select: none;
+}
+
+/* icon */
+.icon{
+    text-align: right;
+    justify-content: right;
+    margin-top: 3rem;
+    margin-right: 5rem;
+}
+
+/* Select a battlefield */
+.box{
+    font-size: 5rem;
+    width: 78rem;
+    height: 48rem;
+    padding: 30px;
+    background-color: #8A7D5D;
+    border-radius: 5%;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 5px 10px #303030;
+  }
+
+.roomlist{
+    overflow-y: scroll;
+    height: 600px;
+    scrollbar-width:none;
+    padding: 10px;
+}
+
+/* lobby room */
+.lobbyroom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 4rem;
+    width: 90%;
+    height: 8rem;
+    padding: 30px;
+    background-color:#C4B796;
+    margin: auto;
+    margin-top: 1.2rem;
+    box-shadow: 5px 10px #2c2c2c;
+    border-radius: 60px;
+    font-size: 3.5rem;
+}
+
+.lobbyroom:hover {
+    background-color: black;
+    color: #C4B796;
+}
+
+
+.numberplayer {
+  flex-grow: 0; /* Prevent the span from taking up extra space */
+  text-align: right; /* Align text within the span to the right */
+}
+
+.numberplayer{
+    position:relative;
+    right: 0px;
+}
