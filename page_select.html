@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="images/icons/logo-1.png" />
-
+	<link rel="stylesheet" type="text/css" href="css/select.css">
 	<script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-database-compat.js"></script>
@@ -14,22 +14,90 @@
 </head>
 
 <body style="background-image: url('images/bg/bg_login.png');">
+	<div class="icon">
+		<img onclick='window.location = "page_main.html";' src="images/icons/icon_home.png" width="100" height="100">
+		<img onclick='window.location = "page_setting.html";' src="images/icons/icon_settings.png" width="100" height="100">
+	</div>
+<div class="box">
+	<div class="text">
+		<h3>Select 1 Wish</h3>
+	</div>
+	<div class="wish-layout">
+		<!-- wood -->
+		<button class="wish-card">
+			<!-- image -->
+				<img class="wish-image" src="images/skill/skill_wood.png">
+				<label class="wish-name">Wild Fury</label>
+				<div class="wish-description">
+					<ul>
+						<li>2 Mana</li>
+						<li>Place an ally on top of an enemie</li>
+					</ul>
+				</div>
 
-	<script>
-		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-		const firebaseConfig = {
-			apiKey: "AIzaSyCwwfH1xJ3T7rsvvDHN-4-c7irac_k0eDY",
-			authDomain: "tictactoe4k.firebaseapp.com",
-			projectId: "tictactoe4k",
-			storageBucket: "tictactoe4k.appspot.com",
-			messagingSenderId: "361093354841",
-			appId: "1:361093354841:web:161da383ada068b0826848",
-			measurementId: "G-E41M4JEK99"
-		};
-		firebase.initializeApp(firebaseConfig)
-	</script>
-	
-	<script src=""></script>
+		</button>
+		<!-- water -->
+		<button class="wish-card">
+			<!-- image -->
+				<img class="wish-image" src="images/skill/skill_water.png">
+				<label class="wish-name">Ebb and Flow</label>
+				<div class="wish-description">
+					<ul>
+						<li>3 Mana</li>
+						<li>After cast <br><span class="span1">Place allies 2 turn</span> </li>
+					</ul>
+				</div>
+
+		</button>
+		<!-- fire -->
+		<button class="wish-card">
+			<!-- image -->
+				<img class="wish-image" src="images/skill/skill_fire.png">
+				<label class="wish-name">Meteor</label>
+				<div class="wish-description">
+					<ul>
+						<li>2 Mana</li>
+						<li>Destroy 1 Allies to Destroy 2 Enemies</li>
+					</ul>
+				</div>
+
+		</button>
+		<!-- star -->
+		<button class="wish-card">
+			<!-- image -->
+				<img class="wish-image" src="images/skill/skill_star.png">
+				<label class="wish-name">Blackhole</label>
+				<div class="wish-description">
+					<ul>
+						<li>2 Mana</li>
+						<li>Destroy all units</li>
+					</ul>
+				</div>
+
+		</button>
+	</div>
+	<div class="select">
+		<!-- button only appear when the skill is selected -->
+		<button class="selectbtn">Select</button>
+	</div>
+</div>
+
+
+<script>
+	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	const firebaseConfig = {
+		apiKey: "AIzaSyCwwfH1xJ3T7rsvvDHN-4-c7irac_k0eDY",
+		authDomain: "tictactoe4k.firebaseapp.com",
+		projectId: "tictactoe4k",
+		storageBucket: "tictactoe4k.appspot.com",
+		messagingSenderId: "361093354841",
+		appId: "1:361093354841:web:161da383ada068b0826848",
+		measurementId: "G-E41M4JEK99"
+	};
+	firebase.initializeApp(firebaseConfig)
+</script>
+
+<script src=""></script>
 
 </body>
 

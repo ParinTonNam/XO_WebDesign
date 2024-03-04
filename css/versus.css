@@ -1,3 +1,7 @@
+body::-webkit-scrollbar {
+    display: none;
+  }
+
 h1{
     font-size: 7rem;
     margin-bottom: 0;
@@ -52,13 +56,16 @@ h3{
 }
 @keyframes slideIn {
     to {
-      right: 25%;
+        right: 25%;
+        animation-timing-function: cubic-bezier(0.66,-0.55,0.27,1.55);
     }
-  }
-  
+    
+}
+
 @keyframes slideOut {
     to {
-      left: 25%;
+        left: 25%;
+        /* animation-timing-function: cubic-bezier(0.66,-0.55,0.27,1.55); */
     }
-  }
-  
+}
+
