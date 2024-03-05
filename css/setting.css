@@ -91,7 +91,7 @@ h4{
   border-radius: 17%;
   font-size: 3rem;
   position: absolute;
-  top: 70%;
+  top: 70vh;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 5px 10px #303030;
