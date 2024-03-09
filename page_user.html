@@ -20,10 +20,10 @@
 	</div>
 	
 	<div class="box">
-		<div class="text_name1"><h3>NamePlayer</h3></div>
-		<div class="text_name2"><h3>Winrate - 99%  Game Counted - 99 games</h3></div>
+		<div class="text_name1" id="playername"><h3>NamePlayer</h3></div>
+		<div class="text_name2" id="winandcount"><h3>Winrate - 99%  Game Counted - 99 games</h3></div>
 		<div class="box_pass">
-			<div class="text_head"><h3>Honor - 99 exp</h3><br></div>
+			<div class="text_head" id="expcount"><h3>Honor - 99 exp</h3><br></div>
 			<div class="box_skill">
 			<img id="myImg" src="images/skill/skill_wood.png" width="200" height="200">
 			<img id="myImg2" src="images/skill/skill_water.png" width="200" height="200">
@@ -43,13 +43,14 @@
 	<script>
 		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 		const firebaseConfig = {
-			apiKey: "AIzaSyCwwfH1xJ3T7rsvvDHN-4-c7irac_k0eDY",
-			authDomain: "tictactoe4k.firebaseapp.com",
-			projectId: "tictactoe4k",
-			storageBucket: "tictactoe4k.appspot.com",
-			messagingSenderId: "361093354841",
-			appId: "1:361093354841:web:161da383ada068b0826848",
-			measurementId: "G-E41M4JEK99"
+		apiKey: "AIzaSyCwwfH1xJ3T7rsvvDHN-4-c7irac_k0eDY",
+		authDomain: "tictactoe4k.firebaseapp.com",
+		databaseURL: "https://tictactoe4k-default-rtdb.asia-southeast1.firebasedatabase.app",
+		projectId: "tictactoe4k",
+		storageBucket: "tictactoe4k.appspot.com",
+		messagingSenderId: "361093354841",
+		appId: "1:361093354841:web:161da383ada068b0826848",
+		measurementId: "G-E41M4JEK99"
 		};
 		firebase.initializeApp(firebaseConfig)
 	</script>

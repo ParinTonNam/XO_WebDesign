@@ -8,7 +8,7 @@ function loginUser(event){
 
     firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
         console.log('AlreadLogin!!!');
-        window.location.href="https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        window.location.href="page_main.html";
     })
     .catch((error) => {
         console.log(error);

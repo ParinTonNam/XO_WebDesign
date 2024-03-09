@@ -7,6 +7,15 @@ h3{
     user-select: none;
 }
 
+b{
+    width: 50%;
+    margin-left: 32px;
+    margin-bottom: 20px;
+}
+
+button{
+    margin:0px;
+}
 /* icon */
 .icon{
     text-align: right;
@@ -31,21 +40,34 @@ h3{
     overflow-y: scroll;
     height: 35.5rem;
     padding: 10px;
-
+    width: 100%;
+    /* background-color: rgb(20, 145, 255); */
     scrollbar-color: black rgba(255, 255, 255, 0);
     scrollbar-arrow-color: white;
     scrollbar-width:none;
-    
 }
 
+.room{
+    /* background-color: rgb(146, 172, 135); */
+    display: flex; 
+    align-items: center;
+    justify-content: space-between
+}
+.lobby{
+    background-color: rgb(105, 100, 86);
+    margin-top: 10px;
+    padding: 2px;
+    border-radius: 5%;
+    /* height: 50%; */
+}
 /* lobby room */
 .lobbyroom{
     
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    width: 90%;
+    /* margin: 0px; */
+    width: 40%;
     height: 4rem;
     padding: 30px;
     margin: auto;

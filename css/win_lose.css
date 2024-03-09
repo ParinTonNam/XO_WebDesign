@@ -1,0 +1,49 @@
+.container{
+     margin-top: 16%;
+    margin-left: 28%;
+    margin-right: 28%;
+}
+
+.text_main{
+    font-size: 15rem; 
+    color:white;
+    margin: 5px;
+}
+
+.text_exp{
+    font-size: 6rem; 
+    color:white;
+    margin: 5px;
+}
+
+/* select button */
+.select {
+    display: flex;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    margin:3rem;
+    margin-top:5rem;
+}
+
+.selectbtn {
+    margin-right: .7rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+
+    color: black;
+    background-color: #C4B796;
+    box-shadow: 5px 10px #2c2c2c;
+    border-radius: 20px;
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+}
+
+.selectbtn:hover{
+    color:#C4B796;
+    background-color: black;
+}
