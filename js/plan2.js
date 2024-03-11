@@ -542,7 +542,7 @@ function checkResult(turn) {
     gameRef.child("game-1").child("user-x-health").once("value").then((snapshot) => {
         if (snapshot.val() == 0) {
             console.log("==============================");
-            console.log("X win in game");
+            console.log("O win in game");
             gameRef.child("game-1").update({
                 ["zone-play-status"]: "owinAll",
             })
