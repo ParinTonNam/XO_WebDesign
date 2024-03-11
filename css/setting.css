@@ -22,6 +22,19 @@ h4{
     color: black;
     margin-inline: 5rem;
 }
+
+.setting{
+  /* background-color: blue; */
+  /* margin-left:3rem ; */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: black;
+  margin-inline: 5rem;
+  font-weight: bold;
+}
+
+
+
 .icon{
     text-align: right;
     justify-content: right;
@@ -68,7 +81,7 @@ h4{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-inline: 8rem;
+  margin-inline: 5rem;
   flex-wrap: wrap;
   flex:1 1 50%;
 }
@@ -107,4 +120,41 @@ h4{
   background-color: #342e1d;
   color: white;
 }
+
+
+/* 992 and 576 */
+/* tablet */
+@media only screen and (max-width: 992px) {
+  .box{
+    width: 80%;
+  }
+  .slidecontainer{
+    width: 100%;
+  }
+  .text_name1{
+    font-size: 3rem;
+    margin: 0;
+  }
+}
+
+/* 576 */
+/* mobile */
+@media only screen and (max-width: 576px) {
+  .box{
+    width: 70%;
+    height: 42rem;
+  }
+  .slidecontainer{
+    width: 100%;
+    margin: 0;
+  }
+  .text_name1{
+    font-size: 3rem;
+    margin: 0;
+  }
+  .setting{
+    font-size: 4rem;
+  }
+}
+
 

@@ -8,6 +8,13 @@ body{
     margin-right: auto;
 }
 
+img{
+    width: 50%;
+    margin-left: 5rem;
+}
+
+
+
 .menu{
     display: flex;
     flex-direction: column;
@@ -26,4 +33,45 @@ body{
 
 .menu-item:hover {
     color: #C3BE8F;
+}
+
+
+/* media at 992 and 576 */
+
+/* tablet */
+/* 576-992 */
+@media only screen and (min-width: 576px) and (max-width: 992px) {
+    body{
+        background-image: url('images/bg/mainmenu_tablet.png');
+    }
+    .menu {
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+    img{
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+/* mobile */
+/* 0-576 */
+@media only screen and (max-width: 576px) {
+    body{
+        background-image: url('images/bg/mainmenu_mobile.png');
+    }
+    .menu{
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+    img{
+        width: 75%;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
