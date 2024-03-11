@@ -518,14 +518,14 @@ function checkResult(turn) {
             gameRef.child("game-1").child("user-x-id").once("value").then((test) =>{
                 console.log(test.val());
                 playerList.child(test.val()).update({
-                            ["win"]: firebase.database.ServerValue.increment(1),
+                            ["lose"]: firebase.database.ServerValue.increment(1),
                         })
             })
 
             gameRef.child("game-1").child("user-o-id").once("value").then((test) =>{
                 console.log(test.val());
                 playerList.child(test.val()).update({
-                            ["lose"]: firebase.database.ServerValue.increment(1),
+                            ["win"]: firebase.database.ServerValue.increment(1),
                         })
             })
             // playerList.child(snapshot.child("user-x-id").once("value").then((data) => {
@@ -549,14 +549,14 @@ function checkResult(turn) {
             gameRef.child("game-1").child("user-o-id").once("value").then((test) =>{
                 console.log(test.val());
                 playerList.child(test.val()).update({
-                            ["win"]: firebase.database.ServerValue.increment(1),
+                            ["lose"]: firebase.database.ServerValue.increment(1),
                         })
             })
 
             gameRef.child("game-1").child("user-x-id").once("value").then((test) =>{
                 console.log(test.val());
                 playerList.child(test.val()).update({
-                            ["lose"]: firebase.database.ServerValue.increment(1),
+                            ["win"]: firebase.database.ServerValue.increment(1),
                         })
             })
         }
