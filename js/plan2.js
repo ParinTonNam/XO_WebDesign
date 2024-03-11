@@ -471,7 +471,7 @@ function checkResult(turn) {
             })
         }
     })
-
+    console.log(drawPoint);
     // ฟังก์ชันอัพเดทเลือด แบบ Hard Code สัสๆ
 
     if (turn.toLowerCase() == "o") {
