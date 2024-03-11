@@ -113,7 +113,7 @@ function getGameInfo(snapshot) {
                         document.querySelector("#btnTermiateGame").disabled = false;
                         btnCancel.forEach((btn) => btn.disabled = true);
                         document.querySelector("#btnNextGame").disabled = false;
-                        document.getElementById("game-status").innerHTML = "WINNER: X in Turn";
+                        document.getElementById("game-status").innerHTML = "WINNER: X in this Turn";
                         if (currentUser.email == document.getElementById("inputPlayer-x").value) {
                             // console.log("==============================");
                             // console.log("Add 3 Scores to X");
@@ -126,7 +126,7 @@ function getGameInfo(snapshot) {
                         document.querySelector("#btnTermiateGame").disabled = false;
                         btnCancel.forEach((btn) => btn.disabled = true);
                         document.querySelector("#btnNextGame").disabled = false;
-                        document.getElementById("game-status").innerHTML = "WINNER: O in Turn";
+                        document.getElementById("game-status").innerHTML = "WINNER: O in this Turn";
                         if (currentUser.email == document.getElementById("inputPlayer-o").value) {
                             // console.log("==============================");
                             // console.log("Add 3 Scores to O");
@@ -139,7 +139,7 @@ function getGameInfo(snapshot) {
                         document.querySelector("#btnTermiateGame").disabled = false;
                         document.querySelector("#btnNextGame").disabled = false;
                         btnCancel.forEach((btn) => btn.disabled = true);
-                        document.getElementById("game-status").innerHTML = "GAME DRAW in Turn";
+                        document.getElementById("game-status").innerHTML = "GAME DRAW this Turn";
                         // updateScoreList(1);
                         break;
                     }
@@ -151,7 +151,7 @@ function getGameInfo(snapshot) {
                         document.querySelector("#btnTermiateGame").disabled = false;
                         document.querySelector("#btnNextGame").disabled = true;
                         btnCancel.forEach((btn) => btn.disabled = true);
-                        document.getElementById("game-status").innerHTML = "X win in Game!!";
+                        document.getElementById("game-status").innerHTML = "X win the Game!!";
                         console.log("x ชนะ")
                         break;
                     }
@@ -160,7 +160,7 @@ function getGameInfo(snapshot) {
                         document.querySelector("#btnTermiateGame").disabled = false;
                         document.querySelector("#btnNextGame").disabled = true;
                         btnCancel.forEach((btn) => btn.disabled = true);
-                        document.getElementById("game-status").innerHTML = "O win in Game!!";
+                        document.getElementById("game-status").innerHTML = "O win the Game!!";
                         console.log("o ชนะ")
                         break;
                     }
@@ -481,6 +481,12 @@ function checkResult(turn) {
             console.log(heal_o);
             document.getElementById("health_o").innerHTML = "Health Players X: " + heal_o;
         })
+        gameRef.child("game-1").child("user-x-health").once("value").then((count) => {
+            heal_x = count.val();
+            console.log("อัพเดทเลือด O");
+            console.log(heal_x);
+            document.getElementById("health_x").innerHTML = "Health Players O: " + heal_x;
+        })
     }
 
     if (turn.toLowerCase() == "x") {
@@ -489,6 +495,12 @@ function checkResult(turn) {
             console.log("อัพเดทเลือด O");
             console.log(heal_x);
             document.getElementById("health_x").innerHTML = "Health Players O: " + heal_x;
+        })
+        gameRef.child("game-1").child("user-o-health").once("value").then((count) => {
+            heal_o = count.val();
+            console.log("อัพเดทเลือด X");
+            console.log(heal_o);
+            document.getElementById("health_o").innerHTML = "Health Players X: " + heal_o;
         })
     }
 
