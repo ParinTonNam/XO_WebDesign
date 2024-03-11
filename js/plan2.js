@@ -113,7 +113,7 @@ function getGameInfo(snapshot) {
                         document.querySelector("#btnTermiateGame").disabled = false;
                         btnCancel.forEach((btn) => btn.disabled = true);
                         document.querySelector("#btnNextGame").disabled = false;
-                        document.getElementById("game-status").innerHTML = "WINNER: X in this Turn";
+                        document.getElementById("game-status").innerHTML = "X Win This Turn";
                         if (currentUser.email == document.getElementById("inputPlayer-x").value) {
                             // console.log("==============================");
                             // console.log("Add 3 Scores to X");
@@ -126,7 +126,7 @@ function getGameInfo(snapshot) {
                         document.querySelector("#btnTermiateGame").disabled = false;
                         btnCancel.forEach((btn) => btn.disabled = true);
                         document.querySelector("#btnNextGame").disabled = false;
-                        document.getElementById("game-status").innerHTML = "WINNER: O in this Turn";
+                        document.getElementById("game-status").innerHTML = "O Win This Turn";
                         if (currentUser.email == document.getElementById("inputPlayer-o").value) {
                             // console.log("==============================");
                             // console.log("Add 3 Scores to O");
@@ -139,7 +139,7 @@ function getGameInfo(snapshot) {
                         document.querySelector("#btnTermiateGame").disabled = false;
                         document.querySelector("#btnNextGame").disabled = false;
                         btnCancel.forEach((btn) => btn.disabled = true);
-                        document.getElementById("game-status").innerHTML = "GAME DRAW this Turn";
+                        document.getElementById("game-status").innerHTML = "GAME DRAW This Turn";
                         // updateScoreList(1);
                         break;
                     }
@@ -151,7 +151,7 @@ function getGameInfo(snapshot) {
                         document.querySelector("#btnTermiateGame").disabled = false;
                         document.querySelector("#btnNextGame").disabled = true;
                         btnCancel.forEach((btn) => btn.disabled = true);
-                        document.getElementById("game-status").innerHTML = "X win the Game!!";
+                        document.getElementById("game-status").innerHTML = "X Win The Game !!!";
                         console.log("x ชนะ")
                         break;
                     }
@@ -160,7 +160,7 @@ function getGameInfo(snapshot) {
                         document.querySelector("#btnTermiateGame").disabled = false;
                         document.querySelector("#btnNextGame").disabled = true;
                         btnCancel.forEach((btn) => btn.disabled = true);
-                        document.getElementById("game-status").innerHTML = "O win the Game!!";
+                        document.getElementById("game-status").innerHTML = "O Win The Game !!!";
                         console.log("o ชนะ")
                         break;
                     }
