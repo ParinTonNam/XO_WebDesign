@@ -15,7 +15,8 @@ function signUser(event) {
                 round: 0,
                 win: 0,
                 lose: 0,
-                exp: 0
+                exp: 0,
+                health: 0
             });
         }
         console.log('AlreadCreateUser!!!');

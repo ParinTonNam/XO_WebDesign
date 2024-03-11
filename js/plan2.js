@@ -1,72 +1,6 @@
 const gameRef = firebase.database().ref("Lobby");
 
 const playerList = firebase.database().ref("playerList");
-// document.getElementById("start1").addEventListener("click", createRoom);
-
-function createRoom1_x() {
-    // เข้าห้องเพื่อหาห้อง
-    const user_lobby = firebase.auth().currentUser;
-    // เอาผู้เล่นเข้าห้อง
-    gameRef.child("Lobby1").once("value").then((lobby_name) => {
-        let lobby_key = user_lobby.uid;
-        playerList.child(lobby_key).once("value").then((player_1) => {
-
-            let check = lobby_name.child("many_player").val();
-            console.log(check);
-            gameRef.child("Lobby1").update({
-                playerx: user_lobby.email,
-                many_player: check + 1
-            })
-            // document.getElementById("playername").innerHTML = email;
-            // window.location.href = "page_preperation.html";
-        })
-    })
-
-}
-
-function createRoom1_o() {
-    // เข้าห้องเพื่อหาห้อง
-    const user_lobby = firebase.auth().currentUser;
-    // เอาผู้เล่นเข้าห้อง
-    gameRef.child("Lobby1").once("value").then((lobby_name) => {
-        let lobby_key = user_lobby.uid;
-        playerList.child(lobby_key).once("value").then((player_1) => {
-
-            let check = lobby_name.child("many_player").val();
-            console.log(check);
-            gameRef.child("Lobby1").update({
-                playero: user_lobby.email,
-                many_player: check + 1
-            })
-        })
-    })
-}
-
-gameRef.on("value", (snapshot) => {
-    const gameInfo = snapshot.val();
-    const currentUser = firebase.auth().currentUser;
-    let player = 0;
-
-    Object.keys(gameInfo).forEach((key) => {
-        switch (key) {
-            case "Lobby1":
-                Object.keys(gameInfo[key]).forEach((countPlayer) => {
-                    switch (countPlayer) {
-                        case "many_player":
-                            if (gameInfo[key][countPlayer] == 2){
-                                // window.location.href = "page_game.html";
-                            }
-                            console.log(gameInfo[key][countPlayer])
-                            break;
-                    }
-                });
-                break;
-        }
-
-    });
-});
-
-
 
 const btnJoins = document.querySelectorAll(".btn-join");
 btnJoins.forEach((btnJoin) => btnJoin.addEventListener("click", joinGame));
@@ -74,6 +8,7 @@ btnJoins.forEach((btnJoin) => btnJoin.addEventListener("click", joinGame));
 function joinGame(event) {
     const currentUser = firebase.auth().currentUser;
     console.log("[Join] Current user", currentUser);
+
     if (currentUser) {
         const btnJoinID = event.currentTarget.getAttribute("id");
         const player = btnJoinID[btnJoinID.length - 1];
@@ -82,15 +17,35 @@ function joinGame(event) {
         if (playerForm.value == "") {
             let tmpID = `user-${player}-id`;
             let tmpEmail = `user-${player}-email`;
+            let tmpHealth = `user-${player}-health`;
             gameRef.child("game-1").update({
                 [tmpID]: currentUser.uid,
-                [tmpEmail]: currentUser.email
+                [tmpEmail]: currentUser.email,
+                [tmpHealth]: 5
             });
             console.log("==============================");
             console.log(currentUser.email + " added.");
             event.currentTarget.disabled = true;
+
+            if (player == "x") {
+                gameRef.child("game-1").child("user-x-health").once("value").then((count) => {
+                    health_x = count.val();
+                    console.log("เข้า x จ้า")
+                    // console.log(health_x);
+                    document.getElementById("health_x").innerHTML = "Health Players O:" + health_x;
+                })
+            }
+            if (player == "o") {
+                gameRef.child("game-1").child("user-o-health").once("value").then((count) => {
+                    health_o = count.val();
+                    console.log("เข้า o จ้า")
+                    // console.log(health_o);
+                    document.getElementById("health_o").innerHTML = "Health Players X:" + health_o;
+                })
+            }
         }
     }
+
 }
 
 const tablePlay = document.querySelectorAll(".table-col");
@@ -112,6 +67,7 @@ function getGameInfo(snapshot) {
     document.querySelector("#btnCancel-x").disabled = false;
     document.querySelector("#btnCancel-o").disabled = false;
     document.querySelector("#btnStartGame").disabled = true;
+    document.querySelector("#btnNextGame").disabled = true;
     document.querySelector("#btnTermiateGame").disabled = true;
 
     const btnCancel = document.querySelectorAll(".btn-cancel-join-game");
@@ -139,7 +95,7 @@ function getGameInfo(snapshot) {
                     }
                     break;
                 case "zone-play-status":
-                    console.log(document.getElementById("inputPlayer-x").value)
+                    // console.log(document.getElementById("inputPlayer-x").value)
 
                     if (gameInfo[key] == "Playing") {
                         gameStart = true;
@@ -156,11 +112,12 @@ function getGameInfo(snapshot) {
                         gameStart = true;
                         document.querySelector("#btnTermiateGame").disabled = false;
                         btnCancel.forEach((btn) => btn.disabled = true);
-                        document.getElementById("game-status").innerHTML = "WINNER: X";
+                        document.querySelector("#btnNextGame").disabled = false;
+                        document.getElementById("game-status").innerHTML = "WINNER: X in Turn";
                         if (currentUser.email == document.getElementById("inputPlayer-x").value) {
-                            console.log("==============================");
-                            console.log("Add 3 Scores to X");
-                            updateScoreList(3);
+                            // console.log("==============================");
+                            // console.log("Add 3 Scores to X");
+                            // updateScoreList(3);
                         }
                         break;
                     }
@@ -168,22 +125,46 @@ function getGameInfo(snapshot) {
                         gameStart = true;
                         document.querySelector("#btnTermiateGame").disabled = false;
                         btnCancel.forEach((btn) => btn.disabled = true);
-                        document.getElementById("game-status").innerHTML = "WINNER: O";
+                        document.querySelector("#btnNextGame").disabled = false;
+                        document.getElementById("game-status").innerHTML = "WINNER: O in Turn";
                         if (currentUser.email == document.getElementById("inputPlayer-o").value) {
-                            console.log("==============================");
-                            console.log("Add 3 Scores to O");
-                            updateScoreList(3);
+                            // console.log("==============================");
+                            // console.log("Add 3 Scores to O");
+                            // updateScoreList(3);
                         }
                         break;
                     }
                     if (gameInfo[key] == "draw") {
                         gameStart = true;
                         document.querySelector("#btnTermiateGame").disabled = false;
+                        document.querySelector("#btnNextGame").disabled = false;
                         btnCancel.forEach((btn) => btn.disabled = true);
-                        document.getElementById("game-status").innerHTML = "GAME DRAW";
-                        updateScoreList(1);
+                        document.getElementById("game-status").innerHTML = "GAME DRAW in Turn";
+                        // updateScoreList(1);
                         break;
                     }
+
+                    // เงื่อนไขชนะเกมทั้งหมด
+
+                    if (gameInfo[key] == "xwinAll") {
+                        gameStart = true;
+                        document.querySelector("#btnTermiateGame").disabled = false;
+                        document.querySelector("#btnNextGame").disabled = true;
+                        btnCancel.forEach((btn) => btn.disabled = true);
+                        document.getElementById("game-status").innerHTML = "X win in Game!!";
+                        console.log("x ชนะ")
+                        break;
+                    }
+                    if (gameInfo[key] == "owinAll") {
+                        gameStart = true;
+                        document.querySelector("#btnTermiateGame").disabled = false;
+                        document.querySelector("#btnNextGame").disabled = true;
+                        btnCancel.forEach((btn) => btn.disabled = true);
+                        document.getElementById("game-status").innerHTML = "O win in Game!!";
+                        console.log("o ชนะ")
+                        break;
+                    }
+
                 case "current_turn":
                     if (gameInfo[key] == "X") {
                         document.getElementById("game-status").innerHTML = "Turn: X";
@@ -268,15 +249,44 @@ function cancelJoin(event) {
         if (playerForm.value && playerForm.value === currentUser.email) {
             let tmpID = `user-${player}-id`;
             let tmpEmail = `user-${player}-email`;
+            let tmpHealth = `user-${player}-health`;
+            // console.log(tmpHealth);
             gameRef.child("game-1").child(tmpID).remove();
             gameRef.child("game-1").child(tmpEmail).remove();
-            console.log(`delete on id: ${currentUser.uid}`);
+            gameRef.child("game-1").child(tmpHealth).remove();
+            // console.log(`delete on id: ${currentUser.uid}`);
             document.querySelector(`#btnJoin-${player}`).disabled = false;
         }
     }
 
     document.getElementById("game-status").innerHTML = "Waiting for players...";
 }
+
+const btnNextGame = document.querySelector("#btnNextGame");
+btnNextGame.addEventListener("click", nextgame);
+
+// ฟังก์ชันไปรอบต่อไป
+function nextgame(event) {
+    console.log("==============================");
+    console.log("Next Round");
+
+    // tablePlay.forEach((item) => item.children.innerHTML = "-");
+    // gameRef.child("game-1").child("user-x-health").val("เริ่มใหม่ๆ");
+    gameRef.child("game-1").update({
+        ["row-1-col-1"]: "-",
+        ["row-1-col-2"]: "-",
+        ["row-1-col-3"]: "-",
+        ["row-2-col-1"]: "-",
+        ["row-2-col-2"]: "-",
+        ["row-2-col-3"]: "-",
+        ["row-3-col-1"]: "-",
+        ["row-3-col-2"]: "-",
+        ["row-3-col-3"]: "-",
+        ["zone-play-status"]: "Playing",
+
+    })
+}
+
 
 const btnStartGame = document.querySelector("#btnStartGame");
 btnStartGame.addEventListener("click", startGame);
@@ -358,6 +368,7 @@ function endGame() {
     gameRef.child("game-1").child("zone-play-status").remove();
     gameRef.child("game-1").child("current_turn").remove();
     gameRef.child("game-1").child("played").remove();
+    // gameRef.child("game-1").child("user-x-health").val("เริ่มใหม่ๆ");
     gameRef.child("game-1").update({
         ["row-1-col-1"]: "-",
         ["row-1-col-2"]: "-",
@@ -375,6 +386,17 @@ function checkResult(turn) {
     let hwin = 0;
     let rwin = 0;
     let drawPoint = 0;
+    let damage = "";
+    // console.log(turn.toLowerCase())
+    // let tmpHealth =`user-${turn}-health` ;
+    // console.log(gameRef.child("game-1").val());
+    // console.log(gameRef.child("game-1").child(`user-${turn}-health`).val());
+    // if (turn = "X"){
+    //     damage = "o";
+    // }
+    // if (turn = "O"){
+    //     damage = "x";
+    // }
     //row
     for (let row = 1; row <= 3; row++) {
         for (let col = 1; col <= 3; col++) {
@@ -386,10 +408,13 @@ function checkResult(turn) {
         }
         if (hwin == 3) {
             console.log("==============================");
-            console.log(turn, "WIN")
+            console.log(turn, "WIN แบบ 1")
             gameRef.child("game-1").update({
                 ["zone-play-status"]: `${turn}-win`,
+                [`user-${turn.toLowerCase()}-health`]: firebase.database.ServerValue.increment(-1),
+
             })
+
         }
         hwin = 0;
     }
@@ -404,9 +429,12 @@ function checkResult(turn) {
         }
         if (rwin == 3) {
             console.log("==============================");
-            console.log(turn, "WIN")
+            console.log(turn, "WIN แบบ 2")
+
             gameRef.child("game-1").update({
                 ["zone-play-status"]: `${turn}-win`,
+                [`user-${turn.toLowerCase()}-health`]: firebase.database.ServerValue.increment(-1),
+
             })
         }
         rwin = 0;
@@ -415,18 +443,22 @@ function checkResult(turn) {
         document.getElementById("row-2-col-2").children[0].innerHTML == turn &&
         document.getElementById("row-3-col-3").children[0].innerHTML == turn) {
         console.log("==============================");
-        console.log(turn, "WIN");
+        console.log(turn, "WIN แบบ 3");
+        // console.log(tmpHealth)
         gameRef.child("game-1").update({
             ["zone-play-status"]: `${turn}-win`,
+            [`user-${turn.toLowerCase()}-health`]: firebase.database.ServerValue.increment(-1),
         })
     }
     if (document.getElementById("row-1-col-3").children[0].innerHTML == turn &&
         document.getElementById("row-2-col-2").children[0].innerHTML == turn &&
         document.getElementById("row-3-col-1").children[0].innerHTML == turn) {
         console.log("==============================");
-        console.log(turn, "WIN");
+        console.log(turn, "WIN แบบ 4");
         gameRef.child("game-1").update({
             ["zone-play-status"]: `${turn}-win`,
+            [`user-${turn.toLowerCase()}-health`]: firebase.database.ServerValue.increment(-1),
+
         })
     }
     gameRef.child("game-1").once("value").then((snapshot) => {
@@ -435,8 +467,89 @@ function checkResult(turn) {
             console.log("Game Draw");
             gameRef.child("game-1").update({
                 ["zone-play-status"]: "draw",
+                [`user-${turn.toLowerCase()}-health`]: firebase.database.ServerValue.increment(-1),
             })
         }
     })
+
+    // ฟังก์ชันอัพเดทเลือด แบบ Hard Code สัสๆ
+
+    if (turn.toLowerCase() == "o") {
+        gameRef.child("game-1").child("user-o-health").once("value").then((count) => {
+            heal_o = count.val();
+            console.log("อัพเดทเลือด X");
+            console.log(heal_o);
+            document.getElementById("health_o").innerHTML = "Health Players X: " + heal_o;
+        })
+    }
+
+    if (turn.toLowerCase() == "x") {
+        gameRef.child("game-1").child("user-x-health").once("value").then((count) => {
+            heal_x = count.val();
+            console.log("อัพเดทเลือด O");
+            console.log(heal_x);
+            document.getElementById("health_x").innerHTML = "Health Players O: " + heal_x;
+        })
+    }
+
+
+
+    // ถ้า X ชนะในเกมนี้
+    gameRef.child("game-1").child("user-o-health").once("value").then((snapshot) => {
+        if (snapshot.val() == 0) {
+            console.log("==============================");
+            console.log("X win in game");
+            gameRef.child("game-1").update({
+                ["zone-play-status"]: "xwinAll",
+            })
+            
+            gameRef.child("game-1").child("user-x-id").once("value").then((test) =>{
+                console.log(test.val());
+                playerList.child(test.val()).update({
+                            ["win"]: firebase.database.ServerValue.increment(1),
+                        })
+            })
+
+            gameRef.child("game-1").child("user-o-id").once("value").then((test) =>{
+                console.log(test.val());
+                playerList.child(test.val()).update({
+                            ["lose"]: firebase.database.ServerValue.increment(1),
+                        })
+            })
+            // playerList.child(snapshot.child("user-x-id").once("value").then((data) => {
+            //     playerList.child(snapshot.child("user-x-id")).update({
+            //         ["win"]: 100,
+            //     })
+            // }
+            // ))
+        }
+    })
+
+
+    // ถ้า O ชนะในเกมนี้
+    gameRef.child("game-1").child("user-x-health").once("value").then((snapshot) => {
+        if (snapshot.val() == 0) {
+            console.log("==============================");
+            console.log("X win in game");
+            gameRef.child("game-1").update({
+                ["zone-play-status"]: "owinAll",
+            })
+            gameRef.child("game-1").child("user-o-id").once("value").then((test) =>{
+                console.log(test.val());
+                playerList.child(test.val()).update({
+                            ["win"]: firebase.database.ServerValue.increment(1),
+                        })
+            })
+
+            gameRef.child("game-1").child("user-x-id").once("value").then((test) =>{
+                console.log(test.val());
+                playerList.child(test.val()).update({
+                            ["lose"]: firebase.database.ServerValue.increment(1),
+                        })
+            })
+        }
+    })
+
+
 
 }
