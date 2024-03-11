@@ -1,52 +1,105 @@
+body {
+  user-select: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  top: 2rem;
+  left: 30rem;
+  width: 100%;
+}
+
+.game-logo {
+  width: 80%;
+}
+
+.icon {
+  width: 33%; 
+  padding-top: 3rem; 
+  padding-right: 5rem;
+  text-align: right;
+  justify-content: right;
+}
+
 .table-col {
-    /* กำหนดความสูงของคอลัมน์ให้เท่ากับความกว้างโดยประมาณ */
-    /* คุณอาจต้องปรับค่านี้ให้เหมาะสมกับความกว้างของคอลัมน์บนหน้าจอของคุณ */
-    height: 100px; /* ตัวอย่าง: กำหนดความสูงเท่ากับ 100px */
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* กำหนดความสูงของคอลัมน์ให้เท่ากับความกว้างโดยประมาณ */
+  /* คุณอาจต้องปรับค่านี้ให้เหมาะสมกับความกว้างของคอลัมน์บนหน้าจอของคุณ */
+  height: 100px;
+  /* ตัวอย่าง: กำหนดความสูงเท่ากับ 100px */
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .table-col p {
-    margin: 0; /* ลบ margin ของ <p> เพื่อให้ text อยู่ตรงกลาง */
+  margin: 0;
+  /* ลบ margin ของ <p> เพื่อให้ text อยู่ตรงกลาง */
 }
 
 .content {
-    width: 100%;
-    height: 90vh;
-    box-sizing: border-box;
-    border-bottom: 1px solid black;
+  width: 100%;
+  height: 90vh;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  display: flex;
+  font-family: lobster;
+  flex: 1 1 100%;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+}
+
+.content-1 .con1-1 {
+  flex-basis: 50%;
+  background-color: var(--color2);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  margin: 40px;
+}
+
+.content-1 .con1-2 {
+  flex-basis: 50%;
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+}
+
+/* 992 tablet */
+@media all and (max-width:992px) {
+  .content {
     display: flex;
-    font-family: lobster;
-    flex:1 1 100%;
-    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width:576px) {
+  .content {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  .game-logo{
+    padding-top: 2rem;
+    width: 120%;
+    justify-content: center;
+    align-items: cen;
+  }
+  .icon{
     display: flex;
     flex-direction: row;
   }
-  .content-1 .con1-1{
-    flex-basis: 50%;
-    background-color: var(--color2);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    justify-content: center;
-    margin:40px;
+  .icon img{
+    width: 40%;
+    height: 40%;
   }
-  .content-1 .con1-2{
-    flex-basis: 50%;
-    text-align: center;
-    padding:20px;
-    font-size:30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin:40px;
-  }
+}
 
-  @media all and (max-width:1000px) {
-    .content{
-      display: flex;
-      flex-wrap: nowrap;
-      flex-direction: column;
-    }}
